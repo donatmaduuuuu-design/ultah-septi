@@ -19,7 +19,6 @@
         .serif-font {
             font-family: 'Playfair Display', serif;
         }
-        /* Custom smooth scroll & styling */
         html {
             scroll-behavior: smooth;
         }
@@ -33,9 +32,8 @@
 <body class="selection:bg-rose-200 selection:text-rose-900">
 
     <!-- AUDIO ELEMENT (.FEST - Nina) -->
-    <!-- Ganti link src di bawah dengan link file audio MP3 lagu Nina (.FEST) yang kamu punya (bisa upload ke drive / hosting sendiri) -->
     <audio id="bgMusic" loop>
-        <source src="https://example.com/fest-nina.mp3" type="audio/mpeg">
+        <source src="Feast_-_Nina_(mp3.pm).mp3" type="audio/mpeg">
         Browser kamu tidak mendukung pemutar audio.
     </audio>
 
@@ -185,14 +183,12 @@
         let isPlaying = false;
 
         function startExperience() {
-            // Fade out intro
             introOverlay.style.opacity = '0';
             setTimeout(() => {
                 introOverlay.style.display = 'none';
                 mainContent.style.opacity = '1';
                 musicPlayer.classList.remove('hidden');
                 
-                // Play music (.FEST - Nina)
                 audio.play().then(() => {
                     isPlaying = true;
                     musicIcon.classList.add('animate-spin');
@@ -201,7 +197,6 @@
                     console.log("Autoplay blocked:", e);
                 });
 
-                // Trigger confetti
                 triggerConfetti();
             }, 700);
         }
