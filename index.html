@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Septi Endah Wulan Sari! 🌸</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    <!-- Confetti JS -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #fdfbf7;
+            color: #4a403a;
+        }
+        .serif-font {
+            font-family: 'Playfair Display', serif;
+        }
+        /* Custom smooth scroll & styling */
+        html {
+            scroll-behavior: smooth;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(238, 226, 214, 0.6);
+        }
+    </style>
+</head>
+<body class="selection:bg-rose-200 selection:text-rose-900">
+
+    <!-- AUDIO ELEMENT (.FEST - Nina) -->
+    <!-- Ganti link src di bawah dengan link file audio MP3 lagu Nina (.FEST) yang kamu punya (bisa upload ke drive / hosting sendiri) -->
+    <audio id="bgMusic" loop>
+        <source src="https://example.com/fest-nina.mp3" type="audio/mpeg">
+        Browser kamu tidak mendukung pemutar audio.
+    </audio>
+
+    <!-- FLOATING MUSIC PLAYER WIDGET -->
+    <div id="musicPlayer" class="fixed bottom-6 right-6 z-50 hidden">
+        <button onclick="toggleMusic()" class="flex items-center gap-2 bg-white/90 backdrop-blur-md px-4 py-3 rounded-full shadow-lg border border-rose-100 hover:bg-rose-50 transition-all duration-300 group">
+            <span id="musicIcon" class="text-xl animate-spin group-hover:scale-110">💿</span>
+            <span id="musicText" class="text-xs font-medium text-rose-900">Putar Lagu (.FEST - Nina)</span>
+        </button>
+    </div>
+
+    <!-- WELCOME / INTRO OVERLAY -->
+    <div id="introOverlay" class="fixed inset-0 z-50 bg-[#f9f5f0] flex flex-col items-center justify-center p-6 text-center transition-opacity duration-700">
+        <div class="max-w-md w-full glass-card p-8 rounded-3xl shadow-xl space-y-6">
+            <div class="w-20 h-20 mx-auto bg-rose-100 rounded-full flex items-center justify-center text-3xl shadow-inner animate-bounce">
+                💌
+            </div>
+            <div class="space-y-2">
+                <h1 class="serif-font text-2xl font-bold text-rose-950">Special Gift for You</h1>
+                <p class="text-sm text-stone-600">Ada pesan spesial dan kejutan kecil nih buat adik tercinta.</p>
+            </div>
+            <button onclick="startExperience()" class="w-full py-3.5 px-6 bg-rose-500 hover:bg-rose-600 text-white font-medium rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2">
+                <span>Buka Kejutan 🤍</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="mainContent" class="opacity-0 transition-opacity duration-1000">
+        
+        <!-- HERO SECTION -->
+        <header class="min-h-screen flex flex-col items-center justify-center text-center px-6 relative overflow-hidden">
+            <div class="absolute inset-0 -z-10 bg-[radial-gradient(#f3e8df_1px,transparent_1px)] [background-size:16px_16px] opacity-60"></div>
+            
+            <div class="max-w-2xl mx-auto space-y-6">
+                <span class="inline-block py-1.5 px-4 bg-rose-100/80 text-rose-800 text-xs font-semibold uppercase tracking-widest rounded-full">
+                    Happy Birthday
+                </span>
+                
+                <h1 class="serif-font text-4xl sm:text-6xl font-bold text-stone-900 tracking-tight leading-tight">
+                    Septi Endah Wulan Sari
+                </h1>
+                
+                <p class="text-base sm:text-lg text-stone-600 max-w-lg mx-auto font-light leading-relaxed">
+                    Terima kasih sudah tumbuh jadi anak dan adik yang hebat. Hari ini, dunia merayakan kehadiranmu.
+                </p>
+
+                <!-- Lirik .FEST - Nina Quote -->
+                <div class="bg-white/60 border border-rose-100 p-4 rounded-2xl max-w-md mx-auto italic text-sm text-stone-700 shadow-sm">
+                    "Tumbuhlah jadi anak yang kuat, tak perlu buru-buru..." <br>
+                    <span class="not-italic text-xs text-rose-600 font-semibold mt-1 block">— .FEST, Nina</span>
+                </div>
+
+                <div class="pt-4">
+                    <a href="#letter" class="inline-flex items-center gap-2 text-sm font-semibold text-rose-800 hover:text-rose-950 transition-colors">
+                        <span>Baca Pesan Kakak</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- LETTER SECTION -->
+        <section id="letter" class="py-20 px-6 max-w-3xl mx-auto">
+            <div class="glass-card p-8 sm:p-12 rounded-3xl shadow-xl relative overflow-hidden">
+                <div class="absolute -right-10 -top-10 text-rose-100 text-9xl font-serif select-none pointer-events-none">“</div>
+                
+                <h2 class="serif-font text-2xl sm:text-3xl font-bold text-stone-900 mb-6">Pesan Spesial untuk Septi</h2>
+                
+                <div class="space-y-4 text-stone-700 leading-relaxed font-light text-base sm:text-lg">
+                    <p>Hai Septi,</p>
+                    <p>Nggak terasa waktu cepat banget berlalu, sekarang kamu makin dewasa. Kakak cuma mau ngucapin selamat ulang tahun ya! Semoga di bertambahnya usia ini, semua impian, doa, dan hal-hal baik yang kamu semogakan bisa pelan-pelan terwujud.</p>
+                    <p>Teruslah jadi pribadi yang kuat, bahagia, dan selalu dikelilingi orang-orang baik. Apapun keadaannya, Kakak selalu bangga sama kamu dan selalu siap jadi tempat kamu cerita.</p>
+                    <p class="pt-4 font-normal text-stone-900">
+                        With love,<br>
+                        <span class="serif-font font-bold text-rose-800 text-xl">Kakakmu</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PHOTO GALLERY / MEMORIES -->
+        <section class="py-16 px-6 max-w-4xl mx-auto">
+            <div class="text-center mb-12 space-y-2">
+                <h2 class="serif-font text-3xl font-bold text-stone-900">Moments & Memories</h2>
+                <p class="text-stone-500 text-sm">Beberapa memori seru dan perjalananmu sejauh ini.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <!-- Ganti link gambar di bawah dengan foto-foto Septi -->
+                <div class="bg-white p-3 rounded-2xl shadow-md border border-stone-100 group hover:-translate-y-1 transition-all duration-300">
+                    <div class="aspect-[4/5] bg-rose-50 rounded-xl overflow-hidden mb-3">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600" alt="Memory 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <p class="text-xs text-center text-stone-600 font-medium">✨ Tetap jadi anak yang ceria</p>
+                </div>
+
+                <div class="bg-white p-3 rounded-2xl shadow-md border border-stone-100 group hover:-translate-y-1 transition-all duration-300">
+                    <div class="aspect-[4/5] bg-rose-50 rounded-xl overflow-hidden mb-3">
+                        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=600" alt="Memory 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <p class="text-xs text-center text-stone-600 font-medium">🌸 Cantik & Hebat</p>
+                </div>
+
+                <div class="bg-white p-3 rounded-2xl shadow-md border border-stone-100 group hover:-translate-y-1 transition-all duration-300">
+                    <div class="aspect-[4/5] bg-rose-50 rounded-xl overflow-hidden mb-3">
+                        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&q=80&w=600" alt="Memory 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <p class="text-xs text-center text-stone-600 font-medium">🤍 Selalu dilimpahi kebahagiaan</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTERACTIVE BIRTHDAY CAKE SECTION -->
+        <section class="py-20 px-6 max-w-lg mx-auto text-center">
+            <div class="glass-card p-8 rounded-3xl shadow-xl space-y-6">
+                <h2 class="serif-font text-2xl font-bold text-stone-900">Make a Wish! 🎂</h2>
+                <p class="text-sm text-stone-600">Klik tombol di bawah ini buat tiup lilin dan merayakan harinya.</p>
+                
+                <div class="text-6xl py-4 animate-pulse" id="cakeEmoji">
+                    🎂✨
+                </div>
+
+                <button onclick="blowCandle()" class="w-full py-3.5 px-6 bg-stone-900 hover:bg-stone-800 text-white font-medium rounded-2xl shadow-md transition-all duration-300">
+                    Tiup Lilin & Rayakan 🎉
+                </button>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="py-8 text-center text-xs text-stone-400 border-t border-stone-200/60">
+            Made with 🤍 for Septi Endah Wulan Sari • 2026
+        </footer>
+    </div>
+
+    <!-- SCRIPT -->
+    <script>
+        const audio = document.getElementById('bgMusic');
+        const musicPlayer = document.getElementById('musicPlayer');
+        const introOverlay = document.getElementById('introOverlay');
+        const mainContent = document.getElementById('mainContent');
+        const musicIcon = document.getElementById('musicIcon');
+        const musicText = document.getElementById('musicText');
+        
+        let isPlaying = false;
+
+        function startExperience() {
+            // Fade out intro
+            introOverlay.style.opacity = '0';
+            setTimeout(() => {
+                introOverlay.style.display = 'none';
+                mainContent.style.opacity = '1';
+                musicPlayer.classList.remove('hidden');
+                
+                // Play music (.FEST - Nina)
+                audio.play().then(() => {
+                    isPlaying = true;
+                    musicIcon.classList.add('animate-spin');
+                    musicText.innerText = "Playing: .FEST - Nina";
+                }).catch(e => {
+                    console.log("Autoplay blocked:", e);
+                });
+
+                // Trigger confetti
+                triggerConfetti();
+            }, 700);
+        }
+
+        function toggleMusic() {
+            if (isPlaying) {
+                audio.pause();
+                isPlaying = false;
+                musicIcon.classList.remove('animate-spin');
+                musicIcon.innerText = "🔇";
+                musicText.innerText = "Musik Dijeda";
+            } else {
+                audio.play();
+                isPlaying = true;
+                musicIcon.classList.add('animate-spin');
+                musicIcon.innerText = "💿";
+                musicText.innerText = "Playing: .FEST - Nina";
+            }
+        }
+
+        function blowCandle() {
+            document.getElementById('cakeEmoji').innerText = "🎉🥳🎈";
+            triggerConfetti();
+        }
+
+        function triggerConfetti() {
+            confetti({
+                particleCount: 120,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#fda4af', '#f43f5e', '#fb7185', '#ffe4e6']
+            });
+        }
+    </script>
+</body>
+</html>
