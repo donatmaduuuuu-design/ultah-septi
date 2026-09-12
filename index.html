@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday, Septi Endah Wulan Sari! 🌸</title>
+    <title>Happy Birthday, Wulan! 🌸</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
@@ -13,10 +13,10 @@
     <style>
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            /* Background gradasi pink dan lilac */
-            background: linear-gradient(135deg, #fdf2f4 0%, #fae8ff 50%, #f3e8ff 100%);
+            background: linear-gradient(135deg, #fce7f3 0%, #f3e8ff 50%, #fae8ff 100%);
             background-attachment: fixed;
             color: #4a403a;
+            overflow-x: hidden;
         }
         .serif-font {
             font-family: 'Playfair Display', serif;
@@ -25,17 +25,54 @@
             scroll-behavior: smooth;
         }
         .glass-card {
-            background: rgba(255, 255, 255, 0.82);
-            backdrop-filter: blur(14px);
-            border: 1px solid rgba(244, 208, 224, 0.6);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(244, 208, 230, 0.7);
         }
-        /* Transisi Smooth untuk Modal Foto */
-        #photoModal {
-            transition: opacity 0.3s ease, visibility 0.3s ease;
+        
+        /* Floating Sparkles Background Animation */
+        .sparkle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            animation: floatSparkle 6s infinite ease-in-out;
+            pointer-events: none;
+        }
+        @keyframes floatSparkle {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 0.3; }
+            50% { transform: translateY(-20px) scale(1.3); opacity: 0.8; }
+        }
+
+        /* Flip Card Styling */
+        .perspective-1000 {
+            perspective: 1000px;
+        }
+        .flip-card-inner {
+            transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        .flip-card-front, .flip-card-back {
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+        .flip-card-back {
+            transform: rotateY(180deg);
         }
     </style>
 </head>
-<body class="selection:bg-pink-200 selection:text-pink-900 min-h-screen">
+<body class="selection:bg-pink-200 selection:text-pink-900 min-h-screen relative">
+
+    <!-- BACKGROUND SPARKLES DECORATION -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none -z-10">
+        <div class="sparkle w-3 h-3 top-12 left-[15%]" style="animation-delay: 0s;"></div>
+        <div class="sparkle w-2 h-2 top-32 right-[20%]" style="animation-delay: 1.5s;"></div>
+        <div class="sparkle w-4 h-4 top-1/2 left-[10%]" style="animation-delay: 1s;"></div>
+        <div class="sparkle w-3 h-3 top-3/4 right-[15%]" style="animation-delay: 2.5s;"></div>
+        <div class="sparkle w-2.5 h-2.5 top-[20%] left-[50%]" style="animation-delay: 3s;"></div>
+    </div>
 
     <!-- AUDIO ELEMENT (.Feast - Nina) -->
     <audio id="bgMusic" loop>
@@ -52,13 +89,13 @@
     </div>
 
     <!-- WELCOME / INTRO OVERLAY -->
-    <div id="introOverlay" class="fixed inset-0 z-50 bg-gradient-to-br from-pink-100/90 via-purple-100/90 to-pink-50/90 backdrop-blur-md flex flex-col items-center justify-center p-6 text-center transition-opacity duration-700">
+    <div id="introOverlay" class="fixed inset-0 z-50 bg-gradient-to-br from-pink-200/90 via-purple-200/90 to-pink-100/90 backdrop-blur-md flex flex-col items-center justify-center p-6 text-center transition-opacity duration-700">
         <div class="max-w-md w-full glass-card p-8 rounded-3xl shadow-xl space-y-6">
-            <div class="w-20 h-20 mx-auto bg-pink-200/60 rounded-full flex items-center justify-center text-3xl shadow-inner animate-bounce">
-                💌
+            <div class="w-20 h-20 mx-auto bg-pink-200/80 rounded-full flex items-center justify-center text-3xl shadow-inner animate-bounce">
+                🌸
             </div>
             <div class="space-y-2">
-                <h1 class="serif-font text-2xl font-bold text-pink-950">Special Gift for Septi</h1>
+                <h1 class="serif-font text-2xl font-bold text-pink-950">Special Gift for Wulan</h1>
                 <p class="text-sm text-stone-600">Ada kejutan kecil, lagu pengantar tidur, dan galeri memori spesial buat kamu.</p>
             </div>
             <button onclick="startExperience()" class="w-full py-3.5 px-6 bg-pink-500 hover:bg-pink-600 text-white font-medium rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2">
@@ -73,27 +110,21 @@
         <!-- HERO SECTION -->
         <header class="min-h-screen flex flex-col items-center justify-center text-center px-6 relative overflow-hidden">
             <div class="max-w-2xl mx-auto space-y-6">
-                <span class="inline-block py-1.5 px-4 bg-pink-200/70 text-pink-900 text-xs font-semibold uppercase tracking-widest rounded-full shadow-sm">
-                    Happy Birthday 🌸
+                <span class="inline-block py-1.5 px-4 bg-pink-200/80 text-pink-950 text-xs font-semibold uppercase tracking-widest rounded-full shadow-sm">
+                    Happy Birthday Wulan 🌸
                 </span>
                 
                 <h1 class="serif-font text-4xl sm:text-6xl font-bold text-stone-900 tracking-tight leading-tight">
-                    Septi Endah Wulan Sari
+                    Wulan Endah Wulan Sari
                 </h1>
                 
                 <p class="text-base sm:text-lg text-stone-600 max-w-lg mx-auto font-light leading-relaxed">
-                    "Tumbuhlah jadi anak yang kuat, tak perlu buru-buru..." Seperti lirik lagu Nina, dunia boleh bising, tapi rumah dan keluarga selalu jadi tempatmu pulang.
+                    "Tumbuhlah jadi anak yang kuat, tak perlu buru-buru..." Dunia boleh bising, tapi rumah dan keluarga selalu jadi tempatmu pulang.
                 </p>
 
-                <!-- Lirik .Feast - Nina Quote -->
-                <div class="glass-card p-4 rounded-2xl max-w-md mx-auto italic text-sm text-stone-700 shadow-sm border border-pink-200">
-                    "Selamat tidur, anak manisku... Semoga lekas besar, jalani hari dengan sabar." <br>
-                    <span class="not-italic text-xs text-pink-700 font-semibold mt-1 block">— .Feast, Nina</span>
-                </div>
-
                 <div class="pt-4">
-                    <a href="#letter" class="inline-flex items-center gap-2 text-sm font-semibold text-pink-800 hover:text-pink-950 transition-colors">
-                        <span>Baca Pesan Makna Lagu & Kakak</span>
+                    <a href="#lyrics" class="inline-flex items-center gap-2 text-sm font-semibold text-pink-800 hover:text-pink-950 transition-colors">
+                        <span>Lihat Lirik Lagu Spesial (.Feast - Nina)</span>
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                         </svg>
@@ -102,18 +133,58 @@
             </div>
         </header>
 
-        <!-- LETTER SECTION (NINA THEME) -->
-        <section id="letter" class="py-20 px-6 max-w-3xl mx-auto">
-            <div class="glass-card p-8 sm:p-12 rounded-3xl shadow-xl relative overflow-hidden">
-                <div class="absolute -right-10 -top-10 text-pink-200 text-9xl font-serif select-none pointer-events-none opacity-50">“</div>
+        <!-- HIGHLIGHT LYRICS SECTION (.FEAST - NINA) -->
+        <section id="lyrics" class="py-16 px-6 max-w-3xl mx-auto">
+            <div class="glass-card p-8 sm:p-12 rounded-3xl shadow-xl relative overflow-hidden space-y-8 border border-pink-300/60 bg-gradient-to-b from-white/90 to-pink-50/50">
+                <div class="absolute -right-8 -bottom-8 text-pink-200/60 text-9xl font-serif select-none pointer-events-none">♫</div>
                 
-                <h2 class="serif-font text-2xl sm:text-3xl font-bold text-stone-900 mb-6">Pesan Spesial & Cerita Lagu "Nina"</h2>
+                <div class="text-center space-y-2">
+                    <span class="text-xs font-bold uppercase tracking-widest text-pink-700 bg-pink-100 px-3 py-1 rounded-full">Lirik Paling Bermakna</span>
+                    <h2 class="serif-font text-2xl sm:text-3xl font-bold text-stone-900">.Feast - Nina</h2>
+                </div>
+
+                <!-- Bagian Lirik yang Di-highlight -->
+                <div class="space-y-6 text-center italic text-stone-800 font-light text-base sm:text-lg leading-relaxed">
+                    <div class="p-4 bg-white/60 rounded-2xl border border-pink-100 shadow-sm space-y-1">
+                        <p>Saat engkau dewasa</p>
+                        <p>Dan aku kian menua</p>
+                        <p>Jika ku berpulang lebih awal, tidak apa</p>
+                        <p>Berjumpa lagi di sana, aku tetap sama</p>
+                    </div>
+
+                    <div class="p-4 bg-white/60 rounded-2xl border border-pink-100 shadow-sm space-y-1">
+                        <p>Saat engkau teringat</p>
+                        <p>Tengkar kita, manakala</p>
+                        <p>Maaf atas perjalanan yang tidak sempurna</p>
+                        <p>Namun percayalah, untukmu kujual dunia</p>
+                    </div>
+
+                    <div class="p-4 bg-pink-100/60 rounded-2xl border border-pink-200 shadow-sm space-y-1 font-normal text-pink-950">
+                        <p class="font-bold">Tumbuh lebih baik, cari panggilanmu</p>
+                        <p class="font-bold">Jadi lebih baik dibanding diriku</p>
+                        <p>Dan tertawalah saat ini selepas-lepasnya...</p>
+                    </div>
+
+                    <div class="p-4 bg-white/60 rounded-2xl border border-pink-100 shadow-sm space-y-1 text-sm text-stone-600">
+                        <p>Aku tahu kamu hebat</p>
+                        <p>Namun, s'lamanya diriku pasti berkutat</p>
+                        <p>'Tuk s'lalu jauhkanmu dari dunia yang jahat</p>
+                        <p>Ini sumpahku padamu 'tuk biarkanmu</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LETTER SECTION -->
+        <section class="py-10 px-6 max-w-3xl mx-auto">
+            <div class="glass-card p-8 sm:p-12 rounded-3xl shadow-xl relative overflow-hidden">
+                <h2 class="serif-font text-2xl sm:text-3xl font-bold text-stone-900 mb-6">Pesan Spesial untuk Wulan</h2>
                 
                 <div class="space-y-4 text-stone-700 leading-relaxed font-light text-base sm:text-lg">
-                    <p>Hai Septi,</p>
-                    <p>Setiap kali mendengarkan lagu <strong>"Nina" dari .Feast</strong>, Kakak selalu teringat sama kamu. Lagu itu punya makna yang sangat dalam—tentang doa seorang kakak atau orang tua yang ingin melihat adiknya tumbuh di dunia yang kadang melelahkan, namun tetap berharap ia bisa melaluinya dengan tegar, sabar, dan tanpa perlu terburu-buru mengejar standar orang lain.</p>
-                    <p>Di usiamu yang sekarang, Kakak cuma mau berpesan: jangan pernah terlalu keras pada diri sendiri ya. Kalau lelah, istirahatlah. Dunia luar mungkin menuntut banyak hal, tapi di rumah, kamu selalu punya tempat untuk bersandar dan menjadi diri sendiri seutuhnya.</p>
-                    <p>Selamat ulang tahun, adik tercinta. Terima kasih sudah bertahan sejauh ini, melangkah hebat, dan menjadi kebanggaan keluarga.</p>
+                    <p>Hai Wulan,</p>
+                    <p>Setiap kali mendengarkan lagu <strong>"Nina" dari .Feast</strong>, selalu teringat sama kamu. Lagu itu punya makna doa agar kamu bisa tumbuh di dunia yang kadang melelahkan ini dengan tegar, sabar, dan tanpa perlu terburu-buru.</p>
+                    <p>Di usiamu yang sekarang, jangan pernah terlalu keras pada diri sendiri ya. Kalau lelah, istirahatlah. Di rumah, kamu selalu punya tempat untuk bersandar.</p>
+                    <p>Selamat ulang tahun, ya! Terima kasih sudah bertahan sejauh ini, melangkah hebat, dan menjadi kebanggaan kita semua.</p>
                     <p class="pt-4 font-normal text-stone-900">
                         With endless love,<br>
                         <span class="serif-font font-bold text-pink-800 text-xl">Kakakmu 🤍</span>
@@ -122,81 +193,91 @@
             </div>
         </section>
 
-        <!-- PHOTO GALLERY / MEMORIES (Click to Zoom / Lightbox) -->
+        <!-- PHOTO GALLERY / MEMORIES (FLIP CARD FEATURE) -->
         <section class="py-16 px-6 max-w-4xl mx-auto">
             <div class="text-center mb-12 space-y-2">
                 <h2 class="serif-font text-3xl font-bold text-stone-900">Moments & Memories</h2>
-                <p class="text-stone-500 text-sm">Klik salah satu foto di bawah untuk memperbesar tampilannya (Fullscreen).</p>
+                <p class="text-stone-500 text-sm">Klik kartu foto di bawah untuk membalik (flip) dan melihat pesan di baliknya!</p>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
                 <!-- Foto 1 -->
-                <div onclick="openModal('foto1.jpg.heic', '✨ Tangguh & Suka Petualangan')" class="glass-card p-3 rounded-2xl shadow-md cursor-pointer group hover:scale-[1.02] transition-all duration-300">
-                    <div class="aspect-[4/5] bg-pink-50 rounded-xl overflow-hidden mb-3 relative flex items-center justify-center">
-                        <img src="foto1.jpg.heic" alt="Memory 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="perspective-1000 h-[400px] cursor-pointer" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner relative w-full h-full rounded-2xl shadow-xl">
+                        <!-- FRONT -->
+                        <div class="flip-card-front absolute inset-0 glass-card p-3 rounded-2xl flex flex-col justify-between">
+                            <div class="h-[82%] rounded-xl overflow-hidden bg-pink-50 flex items-center justify-center">
+                                <img src="foto1.jpg.heic" alt="Memory 1" class="w-full h-full object-cover">
+                            </div>
+                            <p class="text-xs text-center text-stone-700 font-semibold py-1">✨ Ketuk untuk balik kartu</p>
+                        </div>
+                        <!-- BACK -->
+                        <div class="flip-card-back absolute inset-0 bg-gradient-to-br from-pink-500 to-purple-600 text-white p-6 rounded-2xl flex flex-col justify-center items-center text-center space-y-3 shadow-xl">
+                            <span class="text-3xl">🌿</span>
+                            <h3 class="serif-font font-bold text-lg">Watu Gambir</h3>
+                            <p class="text-xs font-light leading-relaxed">Teruslah melangkah tangguh menghadapi setiap jalur pendakian hidup, Wulan!</p>
+                        </div>
                     </div>
-                    <p class="text-xs text-center text-stone-600 font-medium">✨ Tangguh & Suka Petualangan (Klik untuk zoom)</p>
                 </div>
 
                 <!-- Foto 2 -->
-                <div onclick="openModal('foto2.jpg.heic', '🌸 Cantik & Hebat di Puncak')" class="glass-card p-3 rounded-2xl shadow-md cursor-pointer group hover:scale-[1.02] transition-all duration-300">
-                    <div class="aspect-[4/5] bg-pink-50 rounded-xl overflow-hidden mb-3 relative flex items-center justify-center">
-                        <img src="foto2.jpg.heic" alt="Memory 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="perspective-1000 h-[400px] cursor-pointer" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner relative w-full h-full rounded-2xl shadow-xl">
+                        <!-- FRONT -->
+                        <div class="flip-card-front absolute inset-0 glass-card p-3 rounded-2xl flex flex-col justify-between">
+                            <div class="h-[82%] rounded-xl overflow-hidden bg-pink-50 flex items-center justify-center">
+                                <img src="foto2.jpg.heic" alt="Memory 2" class="w-full h-full object-cover">
+                            </div>
+                            <p class="text-xs text-center text-stone-700 font-semibold py-1">✨ Ketuk untuk balik kartu</p>
+                        </div>
+                        <!-- BACK -->
+                        <div class="flip-card-back absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-600 text-white p-6 rounded-2xl flex flex-col justify-center items-center text-center space-y-3 shadow-xl">
+                            <span class="text-3xl">🌸</span>
+                            <h3 class="serif-font font-bold text-lg">Puncak Indah</h3>
+                            <p class="text-xs font-light leading-relaxed">Senyummu seindah pemandangan di puncak. Tetaplah menjadi sumber kebahagiaan!</p>
+                        </div>
                     </div>
-                    <p class="text-xs text-center text-stone-600 font-medium">🌸 Cantik & Hebat di Puncak (Klik untuk zoom)</p>
                 </div>
 
                 <!-- Foto 3 -->
-                <div onclick="openModal('foto3.jpg.heic', '🤍 Selalu dilimpahi kebahagiaan')" class="glass-card p-3 rounded-2xl shadow-md cursor-pointer group hover:scale-[1.02] transition-all duration-300">
-                    <div class="aspect-[4/5] bg-pink-50 rounded-xl overflow-hidden mb-3 relative flex items-center justify-center">
-                        <img src="foto3.jpg.heic" alt="Memory 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="perspective-1000 h-[400px] cursor-pointer" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner relative w-full h-full rounded-2xl shadow-xl">
+                        <!-- FRONT -->
+                        <div class="flip-card-front absolute inset-0 glass-card p-3 rounded-2xl flex flex-col justify-between">
+                            <div class="h-[82%] rounded-xl overflow-hidden bg-pink-50 flex items-center justify-center">
+                                <img src="foto3.jpg.heic" alt="Memory 3" class="w-full h-full object-cover">
+                            </div>
+                            <p class="text-xs text-center text-stone-700 font-semibold py-1">✨ Ketuk untuk balik kartu</p>
+                        </div>
+                        <!-- BACK -->
+                        <div class="flip-card-back absolute inset-0 bg-gradient-to-br from-rose-400 to-pink-600 text-white p-6 rounded-2xl flex flex-col justify-center items-center text-center space-y-3 shadow-xl">
+                            <span class="text-3xl">🤍</span>
+                            <h3 class="serif-font font-bold text-lg">Kebersamaan</h3>
+                        <p class="text-xs font-light leading-relaxed">Apapun rintangannya, keluarga selalu ada untuk mendukung setiap langkahmu.</p>
+                        </div>
                     </div>
-                    <p class="text-xs text-center text-stone-600 font-medium">🤍 Selalu dilimpahi kebahagiaan (Klik untuk zoom)</p>
                 </div>
             </div>
         </section>
 
-        <!-- PHOTO MODAL / LIGHTBOX CONTAINER -->
-        <div id="photoModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
-            <div class="relative max-w-lg w-full bg-white rounded-3xl p-4 shadow-2xl space-y-3 text-center">
-                <button onclick="closeModal()" class="absolute top-3 right-3 w-8 h-8 bg-stone-100 hover:bg-stone-200 rounded-full flex items-center justify-center text-stone-700 font-bold text-sm">✕</button>
-                <div class="max-h-[70vh] overflow-hidden rounded-2xl flex items-center justify-center bg-stone-50">
-                    <img id="modalImg" src="" alt="Zoomed Photo" class="w-full h-auto object-contain max-h-[65vh]">
-                </div>
-                <p id="modalCaption" class="text-sm font-medium text-stone-800"></p>
-            </div>
-        </div>
-
-        <!-- NEW FEATURE: MINI KUIS INTERAKTIF -->
+        <!-- KUIS BARU: SEBERAPA KENAL WULAN -->
         <section class="py-16 px-6 max-w-xl mx-auto">
-            <div class="glass-card p-8 rounded-3xl shadow-xl space-y-6 text-center">
-                <h2 class="serif-font text-2xl font-bold text-stone-900">Kuis Kilat Hari Ini 🎯</h2>
+            <div class="glass-card p-8 rounded-3xl shadow-xl space-y-6 text-center border border-pink-200">
+                <h2 class="serif-font text-2xl font-bold text-stone-900">Kuis Spesial Wulan 🎯</h2>
                 <div id="quizContainer" class="space-y-4">
-                    <p id="quizQuestion" class="text-sm text-stone-700 font-medium">Lagu apa yang jadi pengantar spesial di web ini?</p>
-                    <div class="grid grid-cols-2 gap-3" id="quizOptions">
-                        <button onclick="checkQuiz(false)" class="p-3 bg-white/80 hover:bg-pink-100 border border-pink-200 rounded-xl text-xs font-medium text-stone-700 transition-colors">Badai Pasti Berlalu</button>
-                        <button onclick="checkQuiz(true)" class="p-3 bg-white/80 hover:bg-pink-100 border border-pink-200 rounded-xl text-xs font-medium text-stone-700 transition-colors">.Feast - Nina</button>
+                    <p id="quizQuestion" class="text-sm text-stone-700 font-medium">Apa hobi seru atau aktivitas favorit Wulan di alam terbuka?</p>
+                    <div class="grid grid-cols-1 gap-2.5" id="quizOptions">
+                        <button onclick="checkQuiz(false)" class="p-3 bg-white/90 hover:bg-pink-100 border border-pink-200 rounded-xl text-xs font-medium text-stone-700 transition-colors">Main Game Online Seharian</button>
+                        <button onclick="checkQuiz(true)" class="p-3 bg-white/90 hover:bg-pink-100 border border-pink-200 rounded-xl text-xs font-medium text-stone-700 transition-colors">Naik Gunung & Petualangan Alam 🏔️</button>
+                        <button onclick="checkQuiz(false)" class="p-3 bg-white/90 hover:bg-pink-100 border border-pink-200 rounded-xl text-xs font-medium text-stone-700 transition-colors">Tidur di Pantai</button>
                     </div>
                     <p id="quizFeedback" class="text-xs font-semibold text-pink-700 min-h-[20px]"></p>
                 </div>
             </div>
         </section>
 
-        <!-- INTERACTIVE REASONS / VIBES -->
-        <section class="py-10 px-6 max-w-xl mx-auto text-center">
-            <div class="glass-card p-8 rounded-3xl shadow-xl space-y-6">
-                <h2 class="serif-font text-2xl font-bold text-stone-900">Kenapa Septi Spesial? 🌟</h2>
-                <p id="reasonText" class="text-stone-600 text-sm font-light min-h-[50px] flex items-center justify-center px-4 bg-pink-50/50 rounded-xl border border-pink-200">
-                    Klik tombol di bawah untuk melihat alasan kenapa kamu sangat berarti buat keluarga!
-                </p>
-                <button onclick="nextReason()" class="py-3 px-6 bg-pink-200 hover:bg-pink-300 text-pink-950 text-xs font-bold uppercase tracking-wider rounded-xl transition-all duration-300 shadow-sm">
-                    Klik Pesan Lainnya 💌
-                </button>
-            </div>
-        </section>
-
-        <!-- NEW FEATURE: TULIS WISH / CATATAN PRIBADI -->
-        <section class="py-16 px-6 max-w-xl mx-auto">
+        <!-- TULIS WISH / CATATAN PRIBADI -->
+        <section class="py-10 px-6 max-w-xl mx-auto">
             <div class="glass-card p-8 rounded-3xl shadow-xl space-y-4 text-center">
                 <h2 class="serif-font text-2xl font-bold text-stone-900">Tulis Harapanmu Hari Ini ✨</h2>
                 <p class="text-xs text-stone-500">Ketik apa pun yang ingin kamu capai atau ingat tahun ini.</p>
@@ -226,7 +307,7 @@
 
         <!-- FOOTER -->
         <footer class="py-8 text-center text-xs text-stone-400 border-t border-pink-200/50">
-            Made with 🤍 for Septi Endah Wulan Sari • 2026
+            Made with 🤍 for Wulan Endah Wulan Sari • 2026
         </footer>
     </div>
 
@@ -275,51 +356,15 @@
             }
         }
 
-        /* MODAL / LIGHTBOX PHOTO FUNCTIONS */
-        function openModal(imgSrc, caption) {
-            const modal = document.getElementById('photoModal');
-            const modalImg = document.getElementById('modalImg');
-            const modalCaption = document.getElementById('modalCaption');
-            
-            modalImg.src = imgSrc;
-            modalCaption.innerText = caption;
-            modal.classList.remove('hidden');
-        }
-
-        function closeModal() {
-            const modal = document.getElementById('photoModal');
-            modal.classList.add('hidden');
-        }
-
         /* QUIZ FUNCTION */
         function checkQuiz(isCorrect) {
             const feedback = document.getElementById('quizFeedback');
             if (isCorrect) {
-                feedback.innerText = "🎉 Yeay, benar banget! Kamu hafal lagu pengantarnya!";
+                feedback.innerText = "🎉 Wah, benar sekali! Wulan kan emang anak alam banget!";
                 triggerConfetti();
             } else {
-                feedback.innerText = "❌ Kurang tepat, coba ingat-ingat lagi lirik di atas ya hehe!";
+                feedback.innerText = "❌ Kurang tepat, coba ingat-ingat hobi favoritnya ya hehe!";
             }
-        }
-
-        /* Interactive Reasons Generator */
-        const reasons = [
-            "🌸 Punya senyuman yang selalu bisa bikin suasana rumah jadi adem.",
-            "💪 Sosok adik yang tangguh, kuat, dan hobi naik gunung.",
-            "🍲 Selalu seru kalau diajak ngobrol atau jalan-jalan bareng.",
-            "✨ Berharga banget buat keluarga, jadi sumber kebahagiaan kita.",
-            "🤍 Tempat Kakak buat berbagi cerita dan tukar pikiran."
-        ];
-        let currentReasonIdx = 0;
-
-        function nextReason() {
-            currentReasonIdx = (currentReasonIdx + 1) % reasons.length;
-            const reasonEl = document.getElementById('reasonText');
-            reasonEl.style.opacity = '0';
-            setTimeout(() => {
-                reasonEl.innerText = reasons[currentReasonIdx];
-                reasonEl.style.opacity = '1';
-            }, 200);
         }
 
         function saveUserWish() {
