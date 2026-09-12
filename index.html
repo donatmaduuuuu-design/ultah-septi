@@ -13,7 +13,6 @@
     <style>
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            /* Background gradasi mewah bernuansa pink, lilac, dan peach */
             background: linear-gradient(135deg, #fdf2f8 0%, #fae8ff 40%, #f3e8ff 70%, #fce7f3 100%);
             background-attachment: fixed;
             color: #4a403a;
@@ -32,7 +31,7 @@
             box-shadow: 0 10px 30px rgba(219, 112, 147, 0.08);
         }
         
-        /* Floating Sparkles & Hearts Background Animation */
+        /* Floating Sparkles & Emojis Background Animation */
         .sparkle {
             position: absolute;
             background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(244,114,182,0.4) 100%);
@@ -43,6 +42,19 @@
         @keyframes floatSparkle {
             0%, 100% { transform: translateY(0) scale(1); opacity: 0.4; }
             50% { transform: translateY(-30px) scale(1.4); opacity: 0.9; }
+        }
+
+        .bg-emoji {
+            position: absolute;
+            font-size: 1.8rem;
+            opacity: 0.22;
+            animation: floatEmoji 10s infinite ease-in-out;
+            pointer-events: none;
+            user-select: none;
+        }
+        @keyframes floatEmoji {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-40px) rotate(15deg); }
         }
 
         /* Flip Card Styling */
@@ -75,16 +87,23 @@
 </head>
 <body class="selection:bg-pink-200 selection:text-pink-900 min-h-screen relative">
 
-    <!-- BACKGROUND ANIMATED DECORATIONS -->
+    <!-- BACKGROUND ANIMATED DECORATIONS & EMOJIS -->
     <div class="absolute inset-0 overflow-hidden pointer-events-none -z-10">
+        <!-- Sparkles -->
         <div class="sparkle w-4 h-4 top-16 left-[10%]" style="animation-delay: 0s;"></div>
         <div class="sparkle w-6 h-6 top-32 right-[12%]" style="animation-delay: 1.2s;"></div>
         <div class="sparkle w-3 h-3 top-[45%] left-[8%]" style="animation-delay: 2.5s;"></div>
         <div class="sparkle w-5 h-5 top-[65%] right-[15%]" style="animation-delay: 0.8s;"></div>
         <div class="sparkle w-4 h-4 top-[85%] left-[20%]" style="animation-delay: 3s;"></div>
-        <div class="absolute top-[25%] right-[5%] text-pink-300/40 text-2xl animate-pulse">🌸</div>
-        <div class="absolute top-[55%] left-[3%] text-purple-300/40 text-2xl animate-pulse" style="animation-delay: 1s;">✨</div>
-        <div class="absolute top-[75%] right-[8%] text-pink-300/40 text-2xl animate-pulse" style="animation-delay: 2s;">🤍</div>
+        
+        <!-- Background Transparent Emojis -->
+        <div class="bg-emoji top-[10%] left-[5%]" style="animation-delay: 0s;">🌸</div>
+        <div class="bg-emoji top-[20%] right-[8%]" style="animation-delay: 1.5s;">✨</div>
+        <div class="bg-emoji top-[35%] left-[12%]" style="animation-delay: 3s;">🤍</div>
+        <div class="bg-emoji top-[50%] right-[10%]" style="animation-delay: 2s;">🎂</div>
+        <div class="bg-emoji top-[65%] left-[7%]" style="animation-delay: 4s;">🏔️</div>
+        <div class="bg-emoji top-[80%] right-[15%]" style="animation-delay: 1s;">💖</div>
+        <div class="bg-emoji top-[92%] left-[18%]" style="animation-delay: 2.5s;">🌟</div>
     </div>
 
     <!-- AUDIO ELEMENT (.Feast - Nina) -->
@@ -97,11 +116,11 @@
     <div id="musicPlayer" class="fixed bottom-6 right-6 z-50 hidden">
         <button onclick="toggleMusic()" class="flex items-center gap-2 bg-white/90 backdrop-blur-md px-4 py-3 rounded-full shadow-lg border border-pink-200 hover:bg-pink-50 transition-all duration-300 group">
             <span id="musicIcon" class="text-xl animate-spin group-hover:scale-110">💿</span>
-            <span id="musicText" class="text-xs font-medium text-pink-900">Playing: .Feast - Nina</span>
+            <span id="musicText" class="text-xs font-medium text-pink-900">🎵 Our Special Song (Tap to Play)</span>
         </button>
     </div>
 
-    <!-- WELCOME / INTRO OVERLAY -->
+    <!-- WELCOME / INTRO OVERLAY (PENGANTAR DIPERBARUI) -->
     <div id="introOverlay" class="fixed inset-0 z-50 bg-gradient-to-br from-pink-200/90 via-purple-200/90 to-pink-100/90 backdrop-blur-md flex flex-col items-center justify-center p-6 text-center transition-opacity duration-700">
         <div class="max-w-md w-full glass-card p-8 rounded-3xl shadow-xl space-y-6">
             <div class="w-20 h-20 mx-auto bg-pink-200/80 rounded-full flex items-center justify-center text-3xl shadow-inner animate-bounce">
@@ -109,10 +128,10 @@
             </div>
             <div class="space-y-2">
                 <h1 class="serif-font text-2xl font-bold text-pink-950">Special Gift for Wulan</h1>
-                <p class="text-sm text-stone-600">Ada kejutan kecil, lagu pengantar tidur, dan galeri memori spesial buat kamu.</p>
+                <p class="text-sm text-stone-600 leading-relaxed">Seseorang spesial lagi berulang tahun nih! Ada lagu pilihan, pesan rahasia, galeri memori, sampai kado misteri yang siap dibuka buat kamu. ✨</p>
             </div>
             <button onclick="startExperience()" class="w-full py-3.5 px-6 bg-pink-500 hover:bg-pink-600 text-white font-medium rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2">
-                <span>Buka Kejutan 🤍</span>
+                <span>Buka Kejutan Sekarang 🤍</span>
             </button>
         </div>
     </div>
@@ -188,7 +207,7 @@
             </div>
         </section>
 
-        <!-- LETTER / PESAN RAHASIA SECTION (REVISED: SANTAI & NYAMBUNG LIRIK) -->
+        <!-- LETTER / PESAN RAHASIA SECTION -->
         <section class="py-10 px-6 max-w-3xl mx-auto">
             <div class="glass-card p-8 sm:p-12 rounded-3xl shadow-xl relative overflow-hidden border border-pink-200">
                 <div class="absolute -right-10 -top-10 text-pink-200 text-9xl font-serif select-none pointer-events-none opacity-40">“</div>
@@ -274,8 +293,24 @@
             </div>
         </section>
 
+        <!-- INTERACTIVE MYSTERY GIFT BOX -->
+        <section class="py-12 px-6 max-w-xl mx-auto text-center">
+            <div class="glass-card p-8 rounded-3xl shadow-xl space-y-5 border border-pink-300">
+                <h2 class="serif-font text-2xl font-bold text-stone-900">Kotak Kado Misteri 🎁</h2>
+                <p class="text-xs text-stone-600">Klik kotak kado di bawah ini buat buka kejutan ucapan spesial khusus buat Wulan hari ini!</p>
+                
+                <div id="giftBox" onclick="openGiftBox()" class="text-7xl py-6 cursor-pointer transition-transform duration-300 hover:scale-125 select-none animate-bounce">
+                    🎁
+                </div>
+
+                <div id="giftMessageContainer" class="hidden p-4 bg-pink-100/80 border border-pink-300 rounded-2xl text-xs text-pink-950 font-medium leading-relaxed shadow-inner">
+                    <p id="giftMessageText"></p>
+                </div>
+            </div>
+        </section>
+
         <!-- KUIS SPESIAL WULAN -->
-        <section class="py-16 px-6 max-w-xl mx-auto">
+        <section class="py-12 px-6 max-w-xl mx-auto">
             <div class="glass-card p-8 rounded-3xl shadow-xl space-y-6 text-center border border-pink-200">
                 <h2 class="serif-font text-2xl font-bold text-stone-900">Kuis Spesial Wulan 🎯</h2>
                 <div id="quizContainer" class="space-y-4">
@@ -346,7 +381,7 @@
                 audio.play().then(() => {
                     isPlaying = true;
                     musicIcon.classList.add('animate-spin');
-                    musicText.innerText = "Playing: .Feast - Nina";
+                    musicText.innerText = "🎵 Our Special Song (Playing)";
                 }).catch(e => {
                     console.log("Autoplay blocked:", e);
                 });
@@ -361,12 +396,12 @@
                 isPlaying = false;
                 musicIcon.classList.remove('animate-spin');
                 musicIcon.innerText = "🔇";
-                musicText.innerText = "Musik Dijeda";
+                musicText.innerText = "🎵 Paused (Tap to Play)";
             } else {
                 audio.play();
                 isPlaying = true;
                 musicIcon.classList.add('animate-spin');
-                musicText.innerText = "Playing: .Feast - Nina";
+                musicText.innerText = "🎵 Our Special Song (Playing)";
             }
         }
 
@@ -374,6 +409,29 @@
         function flipCard(element) {
             const innerCard = element.querySelector('.flip-card-inner');
             innerCard.classList.toggle('flipped');
+        }
+
+        /* MYSTERY GIFT BOX FUNCTION */
+        const giftMessages = [
+            "✨ 'Semoga tahun ini membawa kebahagiaan berlimpah, rezeki yang lancar, dan senyum yang nggak pernah luntur dari wajahmu, Wulan!'",
+            "🌸 'Tetaplah jadi pribadi yang tangguh, baik hati, dan hebat seperti sekarang. We are so proud of you!'",
+            "🤍 'Ingat ya, apapun mimpimu di tahun ini, kejarlah dengan sabar. Kamu pasti bisa melewati semuanya!'",
+            "🎉 'Selamat ulang tahun untuk perempuan paling kuat dan spesial! Have a wonderful year ahead!'"
+        ];
+
+        function openGiftBox() {
+            const giftBox = document.getElementById('giftBox');
+            const container = document.getElementById('giftMessageContainer');
+            const textEl = document.getElementById('giftMessageText');
+            
+            giftBox.innerText = "🎉 opened! 💖";
+            giftBox.style.animation = "none";
+            
+            const randomMsg = giftMessages[Math.floor(Math.random() * giftMessages.length)];
+            textEl.innerText = randomMsg;
+            container.classList.remove('hidden');
+            
+            triggerConfetti();
         }
 
         /* QUIZ FUNCTION */
