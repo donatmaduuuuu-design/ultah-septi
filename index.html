@@ -25,39 +25,27 @@
             scroll-behavior: smooth;
         }
         .glass-card {
-            background: rgba(255, 255, 255, 0.90);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(16px);
             border: 1px solid rgba(244, 208, 230, 0.8);
             box-shadow: 0 10px 30px rgba(219, 112, 147, 0.08);
             position: relative;
-            z-index: 10; /* Menjaga card tetap di atas emoji */
+            z-index: 10;
         }
         
         /* Floating Sparkles & Emojis Background Animation */
-        .sparkle {
-            position: absolute;
-            background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(244,114,182,0.4) 100%);
-            border-radius: 50%;
-            animation: floatSparkle 7s infinite ease-in-out;
-            pointer-events: none;
-        }
-        @keyframes floatSparkle {
-            0%, 100% { transform: translateY(0) scale(1); opacity: 0.4; }
-            50% { transform: translateY(-30px) scale(1.4); opacity: 0.9; }
-        }
-
         .bg-emoji {
             position: absolute;
-            font-size: 2.2rem;
-            opacity: 0.5; /* Dibuat sedikit lebih jelas agar tidak tenggelam */
+            font-size: 2rem;
+            opacity: 0.6;
             animation: floatEmoji 8s infinite ease-in-out;
             pointer-events: none;
             user-select: none;
-            z-index: 1; /* Di bawah card tapi tersebar luas */
+            z-index: 1;
         }
         @keyframes floatEmoji {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-50px) rotate(25deg); }
+            50% { transform: translateY(-40px) rotate(20deg); }
         }
 
         /* Flip Card Styling */
@@ -90,7 +78,7 @@
 </head>
 <body class="selection:bg-pink-200 selection:text-pink-900 min-h-screen relative">
 
-    <!-- CONTAINER EMOJI DILETAKKAN DI LUAR SUPAYA TIDAK KETUTUP TOTAL -->
+    <!-- CONTAINER EMOJI -->
     <div id="emojiContainer" class="absolute inset-0 overflow-hidden pointer-events-none"></div>
 
     <!-- AUDIO ELEMENT (.Feast - Nina) -->
@@ -162,7 +150,6 @@
                     <h2 class="serif-font text-2xl sm:text-3xl font-bold text-stone-900">.Feast - Nina</h2>
                 </div>
 
-                <!-- Bagian Lirik yang Di-highlight -->
                 <div class="space-y-6 text-center italic text-stone-800 font-light text-base sm:text-lg leading-relaxed">
                     <div class="p-4 bg-white/70 rounded-2xl border border-pink-100 shadow-sm space-y-1">
                         <p>Saat engkau dewasa</p>
@@ -215,7 +202,7 @@
             </div>
         </section>
 
-        <!-- PHOTO GALLERY / MEMORIES (FLIP CARD FEATURE) -->
+        <!-- PHOTO GALLERY / MEMORIES -->
         <section class="py-16 px-6 max-w-4xl mx-auto">
             <div class="text-center mb-12 space-y-2">
                 <h2 class="serif-font text-3xl font-bold text-stone-900">Moments & Memories</h2>
@@ -226,14 +213,12 @@
                 <!-- Foto 1 -->
                 <div class="perspective-1000 h-[420px] cursor-pointer" onclick="flipCard(this)">
                     <div class="flip-card-inner relative w-full h-full rounded-2xl shadow-xl">
-                        <!-- FRONT -->
                         <div class="flip-card-front absolute inset-0 glass-card p-3 rounded-2xl flex flex-col justify-between">
                             <div class="h-[84%] rounded-xl overflow-hidden bg-pink-50 flex items-center justify-center">
                                 <img src="foto1.jpg.heic" alt="Memory 1" class="w-full h-full object-cover object-center">
                             </div>
                             <p class="text-xs text-center text-pink-800 font-bold py-1.5 bg-pink-50/80 rounded-lg">✨ Ketuk untuk balik kartu</p>
                         </div>
-                        <!-- BACK -->
                         <div class="flip-card-back absolute inset-0 bg-gradient-to-br from-pink-500 to-purple-600 text-white p-6 rounded-2xl flex flex-col justify-center items-center text-center space-y-3 shadow-xl">
                             <span class="text-3xl">🌿</span>
                             <h3 class="serif-font font-bold text-lg">Watu Gambir</h3>
@@ -245,14 +230,12 @@
                 <!-- Foto 2 -->
                 <div class="perspective-1000 h-[420px] cursor-pointer" onclick="flipCard(this)">
                     <div class="flip-card-inner relative w-full h-full rounded-2xl shadow-xl">
-                        <!-- FRONT -->
                         <div class="flip-card-front absolute inset-0 glass-card p-3 rounded-2xl flex flex-col justify-between">
                             <div class="h-[84%] rounded-xl overflow-hidden bg-pink-50 flex items-center justify-center">
                                 <img src="foto2.jpg.heic" alt="Memory 2" class="w-full h-full object-cover object-center">
                             </div>
                             <p class="text-xs text-center text-pink-800 font-bold py-1.5 bg-pink-50/80 rounded-lg">✨ Ketuk untuk balik kartu</p>
                         </div>
-                        <!-- BACK -->
                         <div class="flip-card-back absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-600 text-white p-6 rounded-2xl flex flex-col justify-center items-center text-center space-y-3 shadow-xl">
                             <span class="text-3xl">🌸</span>
                             <h3 class="serif-font font-bold text-lg">Puncak Indah</h3>
@@ -264,14 +247,12 @@
                 <!-- Foto 3 -->
                 <div class="perspective-1000 h-[420px] cursor-pointer" onclick="flipCard(this)">
                     <div class="flip-card-inner relative w-full h-full rounded-2xl shadow-xl">
-                        <!-- FRONT -->
                         <div class="flip-card-front absolute inset-0 glass-card p-3 rounded-2xl flex flex-col justify-between">
                             <div class="h-[84%] rounded-xl overflow-hidden bg-pink-50 flex items-center justify-center">
                                 <img src="foto3.jpg.heic" alt="Memory 3" class="w-full h-full object-cover object-center">
                             </div>
                             <p class="text-xs text-center text-pink-800 font-bold py-1.5 bg-pink-50/80 rounded-lg">✨ Ketuk untuk balik kartu</p>
                         </div>
-                        <!-- BACK -->
                         <div class="flip-card-back absolute inset-0 bg-gradient-to-br from-rose-400 to-pink-600 text-white p-6 rounded-2xl flex flex-col justify-center items-center text-center space-y-3 shadow-xl">
                             <span class="text-3xl">🤍</span>
                             <h3 class="serif-font font-bold text-lg">Kebersamaan</h3>
@@ -351,7 +332,7 @@
 
     <!-- SCRIPT -->
     <script>
-        // GENERATE PAS 30 EMOJI TERSEBAR MERATA DI SELA-SELA HALAMAN
+        // GENERATE EMOJI DI SISI KIRI (< 3%) DAN KANAN (> 95%) SUPAYA AMAN DARI KOTAK PUTIH
         document.addEventListener("DOMContentLoaded", function() {
             const emojiList = ['🌸', '✨', '🤍', '🎂', '🏔️', '💖', '🌟', '🎁', '🎉', '🌿'];
             const container = document.getElementById('emojiContainer');
@@ -368,13 +349,13 @@
                 span.className = 'bg-emoji';
                 span.innerText = emojiList[Math.floor(Math.random() * emojiList.length)];
                 
-                // Mengatur posisi agar berada di sisi kiri (0%-25%) dan kanan (75%-95%) 
-                // agar tidak tertutup kotak card yang berada di tengah layar!
+                // Mengatur posisi persis di pinggir luar (kiri max 3% atau kanan min 95%) 
+                // agar dijamin tidak beririsan dengan card putih di tengah
                 let randomX;
                 if (Math.random() > 0.5) {
-                    randomX = Math.random() * 20; // Sisi kiri layar
+                    randomX = Math.random() * 3; // Menempel di tepi kiri layar
                 } else {
-                    randomX = 75 + (Math.random() * 20); // Sisi kanan layar
+                    randomX = 95 + (Math.random() * 4); // Menempel di tepi kanan layar
                 }
 
                 const randomY = Math.random() * (bodyHeight - 150);
@@ -486,16 +467,17 @@
         }
 
         function blowCandle() {
-            document.getElementById('cakeEmoji').innerText = "🎉🥳🎈✨";
+            const cakeEmoji = document.getElementById('cakeEmoji');
+            if (cakeEmoji) cakeEmoji.innerText = "🎉🥳🎈✨";
             triggerConfetti();
         }
 
         function triggerConfetti() {
             confetti({
                 particleCount: 150,
-                spread: 80,
-                origin: { y: 0.6 },
-                colors: ['#f472b6', '#e879f9', '#c084fc', '#fbcfe8', '#facc15']
+                    spread: 80,
+                    origin: { y: 0.6 },
+                    colors: ['#f472b6', '#e879f9', '#c084fc', '#fbcfe8', '#facc15']
             });
         }
     </script>
